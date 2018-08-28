@@ -1,1 +1,0 @@
-/home/morpho/Devel/contest-files/DataStructures/a.out
