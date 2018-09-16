@@ -28,56 +28,64 @@ const int MAXN = 1010;
 
 int N;
 int P[MAXN][MAXN];
-int dp[MAXN][MAXN];
-bool memo[MAXN][MAXN];
+long long dp[MAXN][MAXN];
+long long ball_sum[MAXN][MAXN];
+long long line_dp[MAXN][MAXN];
 
-int func(int r, int c) {
-    if (r < 0) {
-        return 0;
-    } else {
-        int& ans = dp[r][c];
-
-        if (!memo[r][c]) {
-            memo[r][c] = true;
-            ans = 0;
-
-            if (c == 0) {
-                ans += P[r][c] + func(r - 1, c);
-            } else if (r == c) {
-                ans += P[r][c] + func(r - 1, c - 1);
-            } else {
-                ans += P[r][c];
-                ans += func(r - 1, c - 1);
-                ans += func(r - 1, c); 
-            }
-            
-            return ans;
-        } else {
-            return 0;
-        }
-    }
-}
 int main(void) {
-    while (cin >> N && N != 0) {
-        memset(memo, false, sizeof(memo));
+    cin.tie(0);
+    ios_base::sync_with_stdio(false);
 
-        int ans = 0;
+    while (cin >> N && N != 0) {
+        long long ans = 0;
         
         for (int i = 0; i < N; i++) {
             for (int j = 0; j <= i; j++) {
                 cin >> P[i][j];
-                int now = func(i, j);
-
-                if (now > 0) {
-                    ans += func(i, j);
-                }
-
-                cout << now << " ";
             }
-            cout << endl;
         }
 
-        cout << ans << endl;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j <= i; j++) {
+                ball_sum[i][j] = P[i][j];
+
+                if (i - 1 >= 0) {
+                    ball_sum[i][j] += ball_sum[i - 1][j];
+                }
+                if (i - 1 >= 0 && j - 1 >= 0) {
+                    ball_sum[i][j] += ball_sum[i - 1][j - 1];
+                }
+                if (i - 2 >= 0 && j - 1 >= 0) {
+                    ball_sum[i][j] -= ball_sum[i - 2][j - 1];
+                }
+            }
+        }
+        
+        for (int j = 0; j < N; j++) {
+            for (int i = j; i < N; i++) {
+                line_dp[i][j] = ball_sum[i][j];
+                
+                // for (int k = i - 1; k < N; k++) {
+                //     if (i - 1 < 0 || j - 1 < 0 || k - 1 < 0) continue;
+                //     line_dp[i][j] = max(line_dp[i][j], line_dp[k][j - 1] + ball_sum[i][j] - ball_sum[i - 1][j - 1]);
+                // }
+                
+                if (i - 1 >= 0 && j - 1 >= 0) {
+                    line_dp[i][j] = max(line_dp[i][j], dp[i - 1][j - 1] + ball_sum[i][j] - ball_sum[i - 1][j - 1]);
+                }
+                
+                ans = max(ans, line_dp[i][j]);
+            }   
+
+            dp[N - 1][j] = line_dp[N - 1][j];
+
+            for (int k = N - 2; k >= j; k--) {
+                dp[k][j] = max(dp[k + 1][j], line_dp[k][j]);
+            }
+        }
+       
+        cout << ans << "\n";
     }
+
     return 0;
 }
