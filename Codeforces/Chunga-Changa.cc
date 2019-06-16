@@ -32,12 +32,12 @@ int main(void) {
     long long ry = Y % Z;
 
     if (rx + ry >= Z) {
-		ans += 1;
+       ans += 1;
 
-		if (rx > ry) {
-			rst += Z - rx;
+	if (rx > ry) {
+	    rst += Z - rx;
         } else {
-			rst += Z - ry;
+	    rst += Z - ry;
         }
     }
 
