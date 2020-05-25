@@ -37,6 +37,8 @@ Thumbs.db
 
 # Input files
 *.in
+input.txt
 
 # Binaries
 *.out
+output.txt
