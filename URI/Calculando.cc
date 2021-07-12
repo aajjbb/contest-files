@@ -56,11 +56,11 @@ int main(void) {
                 } else {
                     sum -= stoi(token);
                 }
-                last_op = 0;                
+                last_op = 0;
             } else {
                 assert(0);
-            }   
-            //cout << sum << endl;         
+            }
+            //cout << sum << endl;
         }
 
         if (last_op == 1) {
