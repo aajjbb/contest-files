@@ -1,25 +1,4 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <set>
-#include <map>
-#include <list>
-#include <queue>
-#include <stack>
-#include <memory>
-#include <iomanip>
-#include <numeric>
-#include <functional>
-#include <new>
-#include <algorithm>
-#include <cmath>
-#include <cstring>
-#include <cstdlib>
-#include <cstdio>
-#include <climits>
-#include <cctype>
-#include <ctime>
+#include <bits/stdc++.h>
 
 #define REP(i, n) for(int (i) = 0; i < n; i++)
 #define FOR(i, a, n) for(int (i) = a; i < n; i++)
@@ -39,7 +18,6 @@ template<typename T> T lcm(T a, T b) {
 
 template<typename T> void chmin(T& a, T b) { a = (a > b) ? b : a; }
 template<typename T> void chmax(T& a, T b) { a = (a < b) ? b : a; }
-int in() { int x; scanf("%d", &x); return x; }
 
 using namespace std;
 
@@ -50,45 +28,57 @@ int N, ans;
 int A[15], B[15];
 map<int, int> dp;
 
-int func(int mask, int L, vector<int>& vs, int used) {
-	if (L - used < 3) return 0;	
+int func(int mask, const vector<int>& vs) {
+	if (__builtin_popcount(mask) < 3) return 0;	
 
-	if (dp.find(mask) == dp.end()) {
-		for (int i = 0; i < L; i++) {
-			if (!(mask & (1 << i))) {
-				for (int j = i + 1; j < L; j++) {
-					if (!(mask & (1 << j))) {
-						for (int k = j + 1; k < L; k++) {
-							if (!(mask & (1 << k))) {
-								if (vs[i] + vs[j] > vs[k]) {
-									int new_mask = mask | (1 << i) | (1 << j) | (1 << k);
-									
-									chmax(dp[mask], 1 + func(new_mask, L, vs, used + 3));									
-								}									
-							}	
-						}	
-					}	
-				}	
+	if (dp.find(mask) != dp.end()) {
+		return dp[mask];
+	}
+
+	int ans = 0;
+
+	for (int i = 0; i < vs.size(); i++) {
+		if (!(mask & (1 << i))) {
+			continue;
+		}
+		for (int j = i + 1; j < vs.size(); j++) {
+			if (!(mask & (1 << j))) {
+				continue;
+			}
+			for (int k = 0; k < i; k++) {
+				if (!(mask & (1 << k))) {
+					continue;
+				}
+				if (vs[i] + vs[k] > vs[j]) {
+					int new_mask = mask & ~(1 << i) & ~(1 << j) & ~(1 << k);									
+					chmax(ans, 1 + func(new_mask, vs));
+					break;
+				}
 			}	
 		}	
 	}	
-	return dp[mask];
+
+	return dp[mask] = ans;
 }
 
-int run(vector<int>& vs) {
+int run(const vector<int>& vs) {
 	dp.clear();
-	int L = (int) vs.size();
-	return func(0, L, vs, 0);
+	return func((1 << vs.size()) - 1 , vs);
 }
 
 int main(void) {
-    for ( ; scanf("%d", &N) == 1 && N != 0; ) {
+	cin.tie(0);
+	ios_base::sync_with_stdio(false);
+
+    for ( ; cin >> N && N != 0; ) {
         for (int i = 0; i < 15; i++) {
 			A[i] = B[i] = 0;
 		}
 
         for (int i = 0; i < N; i++) {
-            int x = in();
+            int x;
+			cin >> x;
+
             if (i % 2 == 0) {
                 A[x] += 1;
             } else {
@@ -103,8 +93,11 @@ int main(void) {
 			B1 += B[i] / 3;
 			B[i] %= 3;
 		}
+
+		string output = "";
+
 		if (A1 != B1) {
-			puts(A1 > B1 ? "1" : "2");
+			output = A1 > B1 ? "1" : "2";
 		} else {
 			vector<int> vs1, vs2;
 			
@@ -123,11 +116,13 @@ int main(void) {
 			int cnt2 = run(vs2);
 
 			if (cnt1 != cnt2) {
-				puts(cnt1 > cnt2 ? "1" : "2");
+				output = cnt1 > cnt2 ? "1" : "2";
 			} else {
-				puts("0");
+				output = "0";
 			}
 		}
+
+		cout << output << "\n";
     }
 
     return 0;
