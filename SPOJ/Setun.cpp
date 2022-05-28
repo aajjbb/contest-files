@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ string funcD(int n, int b) {
         result = chars[nn % b] + result;
         nn /= b;
     }
+    cout << result << endl;
     reverse(result.begin(), result.end());
     for(int i = 0; i < result.size(); i++) {
         if(result[i] == '1') result[i] = '-';
@@ -31,12 +33,38 @@ string funcD(int n, int b) {
     return result;
 }
 
-
 int main(void) {
-    freopen("i.in", "r", stdin);
-    freopen("setun.out", "w", stdout);
     while(~scanf("%d", &n)) {
-        printf("%s\n", funcD(n, 3).c_str());
+        //printf("%s\n", funcD(n, 3).c_str());
+        if (n == 0) {
+            puts("0");
+            continue;
+        }
+        string ans = "";
+
+        while (n != 0) {
+            int md = ((n % 3) + 3) % 3;
+
+            if (md == 0) {
+                ans += "0";
+            } else if (md == 1) {
+                ans += "+";
+                n -= 1;
+            } else {
+                ans += "-";
+                n += 1;
+            }
+            n /= 3;
+        }
+
+        if (ans == "") {
+            ans = "0";
+        }
+
+        reverse(ans.begin(), ans.end());
+
+        
+        printf("%s\n", ans.c_str());
     }
     return 0;
 }
