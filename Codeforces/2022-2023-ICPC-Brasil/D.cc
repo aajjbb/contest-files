@@ -19,7 +19,7 @@ typedef unsigned long long uInt;
 typedef unsigned uint;
 
 int main(void) {
-    int N, goal_x, goal_y;
+    long long N, goal_x, goal_y;
     cin >> N >> goal_x >> goal_y;
 
     // (3, 1)
@@ -32,44 +32,54 @@ int main(void) {
 
 
     // (13, 13)
-    // 8, 12, 
+    // 8, 12,
 
-    int dx[4] = {0, 0, (1 << N), (1 << N)};
-    int dy[4] = {0, (1 << N), 0, (1 << N)};
+    long long end_x = (1 << N);
+    long long end_y = (1 << N);
 
-    int start_x = (1 << (N - 1));
-    int start_y = (1 << (N - 1));
+    long long sx = (1 << (N - 1));
+    long long sy = (1 << (N - 1));
 
-    priority_queue<pair<int, pair<int, int> > > pq;
-    map<pair<int, int>, int> dist;
-    
-    dist[make_pair(start_x, start_y)] = 0;
-    pq.push(make_pair(-(abs(start_x - goal_x) + abs(start_y - goal_y)), make_pair(start_x, start_y)));
+    long long steps = 0;
 
-    while (!pq.empty()) {
-        pair<int, int> curr_pair = pq.top().second;
-        int curr_dist = -pq.top().first;
-        int px = pq.top().second.first;
-        int py = pq.top().second.second;
-        pq.pop();
+    while (!(sx == goal_x && sy == goal_y)) {
+        long long nx = 0;
+        long long ny = 0;
+        cerr << sx << " " << sy << "\n";
 
-       // cout << px << " " << py << endl;
-
-        if (px == goal_x && py == goal_y) {
-            cout << dist[curr_pair] << "\n";
-            break;
-        }
-
-        for (int i = 0; i < 4; i++) {
-            int nx = (px + dx[i]) / 2;
-            int ny = (py + dy[i]) / 2;
-
-            if (dist.find(make_pair(nx, ny)) == dist.end() || dist[make_pair(nx, ny)] > curr_dist + 1) {
-                dist[make_pair(nx, ny)] = curr_dist + 1;
-                pq.push(make_pair(-(curr_dist + 1), make_pair(nx, ny)));
+        if (sx < goal_x) {
+            if ((sx + end_x) % 2 == 0) {
+                nx = min(goal_x, (long long) (sx + end_x) / 2);
+            } else {
+                nx = min(goal_x, (long long) (sx + end_x - 1) / 2);
+            }
+        } else {
+            if (sx % 2 == 0) {
+                nx = max(goal_x, (long long) (sx / 2));
+            } else {
+                nx = max(goal_x, (long long) ((sx + 1) / 2));
             }
         }
+        if (sy < goal_y) {
+            if ((sy + end_y) % 2 == 0) {
+                ny = min(goal_y, (long long) (sy + end_x) / 2);
+            } else {
+                ny = min(goal_y, (long long) (sy + end_x - 1) / 2);
+            }
+        } else {
+            if (sy % 2 == 0) {
+                ny = max(goal_y, (long long) (sy / 2));
+            } else {
+                ny = max(goal_y, (long long) ((sy + 1) / 2));
+            }
+        }
+        sx = nx;
+        sy = ny;
+        steps += 1;
     }
+    cerr << sx << " " << sy << "\n";
+
+    cout << steps << "\n";
 
     return 0;
 }
