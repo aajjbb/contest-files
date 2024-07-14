@@ -1,3 +1,4 @@
+// 12-02-2013 03:10:53+01:00	Submit	aajjbb	500	387.67
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -35,32 +36,32 @@ int func(int id, int cust, int N, vector<int>& customers, vector<int>& cost) {
 		}
 	}
 	int& ans = dp[id][cust];
-	
+
 	if (ans != -1) return ans;
-	
+
 	int i;
-	
+
 	ans = func(id + 1, cust, N, customers, cost);
-	
+
 	for (i = id; i < N; i++) {
 		int xp = 1;
-		
+
 		for ( ; ; xp++) {
 			chmin(ans, cost[i] * xp + func(id + 1, cust - customers[i] * xp, N, customers, cost));
-			
+
 			if (cust - xp * customers[i] < 0) break;
 		}
 	}
-	
+
 	return ans;
 }
 
 int Hotel::marketCost(int minCustomers, vector <int> customers, vector <int> cost) {
-	int N = (int) cost.size();	
+	int N = (int) cost.size();
 	memset(dp, -1, sizeof(dp));
-	
+
 	func(0, minCustomers, N, customers, cost);
-	
+
 	return dp[0][minCustomers];
 }
 

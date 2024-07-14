@@ -1,3 +1,4 @@
+// 02-03-2015 01:06:32+01:00	Submit	aajjbb	500	150.00
 #line 57 "MedalTable.cpp"
 /*
  aajjbb
@@ -72,7 +73,7 @@ struct MedalTable {
 		REP(i, results.size()) {
 			string g = results[i].substr(0, 3); bool has_g = false;
 			string p = results[i].substr(4, 3); bool has_p = false;
-			string b = results[i].substr(8, 3);	bool has_b = false;		
+			string b = results[i].substr(8, 3);	bool has_b = false;
 			REP(j, vp.size()) {
 				if(vp[j].nome == g) {
 					has_g = true;
@@ -93,7 +94,7 @@ struct MedalTable {
 					vp[j].b += 1;
 				}
 			}
-			if(!has_b) vp.push_back(pais(b, 0, 0, 1));	
+			if(!has_b) vp.push_back(pais(b, 0, 0, 1));
 		}
 		sort(vp.begin(), vp.end());
 		vector<string> ans;

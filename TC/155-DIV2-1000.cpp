@@ -1,3 +1,4 @@
+// 2013-11-20T04:24:50+01:00
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -36,7 +37,7 @@ struct PaternityTest {
 		int i, j, temp;
 		vector<int> ret;
 		string::iterator it;
-		
+
 		REP(i, sz(men)) {
 			temp = 0;
 			REP(j, sz(men[i])) {

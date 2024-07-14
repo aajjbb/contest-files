@@ -1,3 +1,4 @@
+// 2013-03-02T04:42:15+01:00
 /*
 aajjbb
 */
@@ -47,12 +48,12 @@ typedef long double ld;
 struct Quipu {
 	int readKnots(string knots) {
 		string to = "";
-				
+
 		for(int i = 0; i < knots.size(); i++) {
 			int j = i + 1;
 			while(j < knots.size() && knots[j] == knots[i]) {
 				j += 1;
-			} 	
+			}
 			if(knots[i] == 'X') {
 				to += (j - i) + '0';
 			} else {
@@ -61,9 +62,9 @@ struct Quipu {
 			i = j - 1;
 		}
 		int ans = 0;
-		
+
 		istringstream ss(to); ss >> ans;
-		
+
 		return ans;
 	}
 };

@@ -1,3 +1,4 @@
+// 10-01-2012 04:19:24+01:00	Submit	aajjbb	300	284.04
 import java.util.*;
 
 public class Workshop {
@@ -12,7 +13,7 @@ public class Workshop {
 			}
 		}
 		return ans;
-	}	
+	}
 	public boolean isPossible(int a, int b, int c) {
 		return (a + b > c);
 	}

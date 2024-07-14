@@ -1,3 +1,4 @@
+// 2012-02-01T11:07:39+01:00
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -17,7 +18,7 @@ class DigitalDisplay {
 	int waysToInterpret(string display)  {
 		int ways = 0, s[3];
 		stringstream ss;
-		
+
 		ss << display.substr(0, 2);
 		ss >> s[0];
 		ss.clear();
@@ -26,15 +27,15 @@ class DigitalDisplay {
 		ss.clear();
 		ss << display.substr(6, 2);
 		ss >> s[2];
-		ss.clear();			
-		
-		if(isValid(s[0], s[1], s[2])) ways++;	
-		if(isValid(s[1], s[2], s[0])) ways++;			
+		ss.clear();
+
+		if(isValid(s[0], s[1], s[2])) ways++;
+		if(isValid(s[1], s[2], s[0])) ways++;
 		if(isValid(s[2], s[0], s[1])) ways++;
 		if(isValid(s[1], s[0], s[2])) ways++;
 		if(isValid(s[2], s[1], s[0])) ways++;
 		if(isValid(s[0], s[2], s[1])) ways++;
-		
+
 		return ways;
 	}
 	bool isValid(int h, int m, int s) {

@@ -1,3 +1,4 @@
+// 11-24-2012 19:52:24+01:00	Submit	aajjbb	500	300.13
 /*aajjbb*/
 #line 83 "Projections.cpp"
 #include <iostream>
@@ -42,7 +43,7 @@ struct Projections {
 		ans[1] = simul_max(front, right);
 		return ans;
 	}
-	int simul_min(string& front, string& right) {		
+	int simul_min(string& front, string& right) {
 		int r = 0, c = 0;
 		REP(i, right.size()) if(right[i] == 'x') r += 1;
 		REP(i, front.size()) if(front[i] == 'x') c += 1;
@@ -50,13 +51,13 @@ struct Projections {
 	}
 	int simul_max(string& front, string& right) {
 		int ans = 0;
-		
+
 		REP(i, right.size()) {
 			REP(j, front.size()) {
 				if(right[i] == 'x' && front[j] == 'x') ans += 1;
 			}
 		}
-		
+
 		return ans;
 	}
 };

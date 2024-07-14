@@ -1,3 +1,4 @@
+// 12-09-2013 14:22:01+01:00	Submit	aajjbb	500	237.18
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -25,11 +26,11 @@ int toInt(string& s) {
 	int i;
 	int id = 0;
 	int ans = 0;
-	
+
 	for (i = s.size() - 1; i >= 0; i--) {
 		ans += pow(10, id++) * (s[i] - '0');
 	}
-	
+
 	return ans;
 }
 
@@ -42,7 +43,7 @@ int isPrime(int x) {
 		return false;
 	} else {
 		int i;
-		
+
 		for (i = 3; i <= (int) sqrt(x); i += 2) {
 			if (x % i == 0) {
 				return false;
@@ -73,7 +74,7 @@ void rec(int prod, string s, vector<int> arr) {
 		for (i = 0; i < (int) s.size(); i++) {
 			bf += s[i];
 			int as_int = toInt(bf);
-			
+
 			if (isPrime(as_int)) {
 				vector<int> cp = arr;
 				cp.push_back(as_int);
@@ -83,13 +84,13 @@ void rec(int prod, string s, vector<int> arr) {
 	}
 }
 
-vector <int> PrimeAnagrams::primes(string anagram) {	
+vector <int> PrimeAnagrams::primes(string anagram) {
 	sort(anagram.begin(), anagram.end());
-	
+
 	do {
-		rec(1, anagram, vector<int>());	
+		rec(1, anagram, vector<int>());
 	} while(next_permutation(anagram.begin(), anagram.end()));
-	
+
 	return ans;
 }
 

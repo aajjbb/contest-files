@@ -1,3 +1,4 @@
+// 09-12-2012 14:16:14+01:00	Submit	aajjbb	500	307.37
 #line 61 "RogersPhenomenon.cpp"
 /*
  aajjbb
@@ -45,12 +46,12 @@ struct RogersPhenomenon {
 	int countTriggers(vector <int> set1, vector <int> set2) {
 		int i;
 		vector<int> ans;
-		REP(i, set1.size()) {			
+		REP(i, set1.size()) {
 			if(ok(set1, set2, set1[i])) ans.push_back(set1[i]);
 		}
 		REP(i, set2.size()) {
 			if(ok(set2, set1, set2[i])) ans.push_back(set2[i]);
-		}		
+		}
 		return (int) ans.size();
 	}
 	double mean(vector<int>& v) {
@@ -61,11 +62,11 @@ struct RogersPhenomenon {
 	}
 	bool ok(vector<int> set1, vector<int> set2, int now) {
 		double means1 = mean(set1);
-		double means2 = mean(set2);		
+		double means2 = mean(set2);
 		set2.push_back(now);
-		set1.erase(find(set1.begin(), set1.end(), now));				
+		set1.erase(find(set1.begin(), set1.end(), now));
 		double means1_new = mean(set1);
-		double means2_new = mean(set2);						
+		double means2_new = mean(set2);
 		return means1 < means1_new && means2 < means2_new;
 	}
 };

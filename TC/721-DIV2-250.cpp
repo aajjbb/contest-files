@@ -1,3 +1,4 @@
+// 2017-11-06T20:48:18+01:00
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {

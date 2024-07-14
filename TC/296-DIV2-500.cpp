@@ -1,3 +1,4 @@
+// 01-13-2013 01:57:21+01:00	Submit	aajjbb	500	150.00
 /*
 aajjbb
 */
@@ -48,7 +49,7 @@ struct DollSets {
 			used[i] = used[j] = true;
 			ans += 1;
 		}
-		
+
 		return ans;
 	}
 };

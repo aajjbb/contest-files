@@ -1,3 +1,4 @@
+// 10-14-2013 21:30:21+01:00	Submit	aajjbb	500	150.00
 /*
 aajjbb
 */
@@ -42,18 +43,18 @@ struct CmpdWords {
 
 		map<string, int> mp;
 		map<string, int>::iterator it;
-		
+
 		REP(i, N) mp[dictionary[i]] = 1;
-		
+
 		REP(i, N) REP(j, N) if(i != j) {
 			mp[dictionary[i]+dictionary[j]] += 1;
-		}		
-		
+		}
+
 		for(it = mp.begin(); it != mp.end(); it++) {
 			if(it->second > 1) ans += 1;
 		}
-		
-		return ans;	
+
+		return ans;
 	}
 };
 

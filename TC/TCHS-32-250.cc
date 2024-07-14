@@ -1,4 +1,4 @@
-// 02-08-2011 17:27:14
+// 2011-08-02T17:27:14+01:00
 #include <iostream>
 #include <vector>
 #include <cmath>

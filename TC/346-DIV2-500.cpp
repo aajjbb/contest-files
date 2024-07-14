@@ -1,3 +1,4 @@
+// 08-30-2015 18:01:34+01:00	Submit	aajjbb	500	491.00
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -25,7 +26,7 @@ public:
 int CommonMultiples::countCommMult(vector <int> a, int lower, int upper) {
 	int N = a.size();
 	long long val = a[0];
-	
+
 	for (int i = 1; i < N; i++) {
 		val = lcm(val, (long long) a[i]);
 	}

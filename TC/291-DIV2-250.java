@@ -1,3 +1,4 @@
+// 09-23-2011 12:15:28+01:00	Submit	aajjbb	250	219.13
 import java.util.*;
 
 public class FarFromPrimes {
@@ -14,8 +15,8 @@ public class FarFromPrimes {
 		for(int i = n, j = n; i >= n - 10 && j <= n + 10; i--, j++) {
 			if(isPrime(i) || isPrime(j)) {
 				return false;
-			}		
-		} 
+			}
+		}
 		return true;
 	}
 	public boolean isPrime (int n) {
@@ -28,6 +29,6 @@ public class FarFromPrimes {
     		if(n%i==0)
          		return false;
 
-	   return true;	
+	   return true;
 	}
 }

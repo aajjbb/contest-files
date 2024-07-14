@@ -1,3 +1,4 @@
+// Submitted - 2014:09:25 19:08:28
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -18,16 +19,16 @@ long long func(int id, long long sum) {
 		return sum == 1LL;
 	} else {
 		long long& ans = dp[id][sum];
-		
+
 		if (!mark[id][sum]) {
 			mark[id][sum] = true;
 			ans = func(id + 1, sum);
-		
+
 			if (sum % digit[id] == 0) {
 				ans = ((ans % MOD) + (func(id + 1, sum / digit[id]) % MOD)) % MOD;
-			}	
+			}
 		}
-		
+
 		return ans % MOD;
 	}
 }
@@ -35,11 +36,11 @@ long long func(int id, long long sum) {
 
 int GoodSubset::numberOfSubsets(int goodValue, vector <int> d) {
 	N = (int) d.size();
-	
+
 	for (int i = 0; i < d.size(); i++) {
 		digit[i] = d[i];
 	}
-	
+
 	return (int) func(0, goodValue) - (goodValue == 1);
 }
 

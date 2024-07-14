@@ -1,3 +1,4 @@
+// Submitted - 2016:07:06 02:56:07
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -29,16 +30,16 @@ bool cmp(pair<int, int> a, pair<int, int> b) {
 string CatchTheBeatEasy::ableToCatchAll(vector <int> x, vector <int> y) {
 	int N = (int) x.size();
 	vector<pair<int, int> > fruit;
-	
+
 	for (int i = 0; i < N; i++) {
 		fruit.push_back(make_pair(x[i], y[i]));
 	}
-	
+
 	sort(fruit.begin(), fruit.end(), cmp);
-	
+
 	int now_x = 0;
 	int spent = 0;
-	
+
 	for (int i = 0; i < N; i++) {
 		for (int j = i + 1; j < N; j++) {
 			if (fruit[i].second != fruit[j].second) break;
@@ -46,9 +47,9 @@ string CatchTheBeatEasy::ableToCatchAll(vector <int> x, vector <int> y) {
 				swap(fruit[i], fruit[j]);
 			}
 		}
-		
+
 		int dist = abs(now_x - fruit[i].first);
-		
+
 		if (fruit[i].second - spent < 0 || dist > fruit[i].second - spent) {
 			return "Not able to catch";
 		} else {
@@ -56,7 +57,7 @@ string CatchTheBeatEasy::ableToCatchAll(vector <int> x, vector <int> y) {
 			now_x = fruit[i].first;
 		}
 	}
-	
+
 	return "Able to catch";
 }
 

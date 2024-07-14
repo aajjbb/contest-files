@@ -1,3 +1,4 @@
+// 09-09-2012 01:59:27+01:00	Submit	aajjbb	500	359.31
 import java.util.*;
 
 public class RGBStreet {
@@ -12,7 +13,7 @@ public class RGBStreet {
                 dp[i][2] = Integer.parseInt(helper[2]);
             } else {
                 dp[i][0] = Math.min(dp[i - 1][1], dp[i - 1][2]) + Integer.parseInt(helper[0]);
-                dp[i][1] = Math.min(dp[i - 1][0], dp[i - 1][2]) + Integer.parseInt(helper[1]);				
+                dp[i][1] = Math.min(dp[i - 1][0], dp[i - 1][2]) + Integer.parseInt(helper[1]);
                 dp[i][2] = Math.min(dp[i - 1][0], dp[i - 1][1]) + Integer.parseInt(helper[2]);
             }
         }

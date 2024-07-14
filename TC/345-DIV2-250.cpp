@@ -1,3 +1,4 @@
+// 11-20-2013 15:40:51+01:00	Submit	aajjbb	250	234.71
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -25,7 +26,7 @@ int Trekking::findCamps(string trail, vector <string> plans) {
 	int i;
 	int j;
 	int ans = INT_MAX / 2;
-	
+
 	for (i = 0; i < (int) plans.size(); i++) {
 		bool ok = true;
 		int night = 0;

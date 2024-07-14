@@ -1,3 +1,4 @@
+// 09-11-2012 21:07:18+01:00	Submit	aajjbb	250	233.91
 import java.util.*;
 import java.math.*;
 
@@ -19,7 +20,7 @@ public class MovingAverages {
 		int[] ans = new int[help.size()];
 		for(int i = 0; i < help.size(); i++) ans[i] = help.get(i);
 		return ans;
-	}	
+	}
 }
 
 

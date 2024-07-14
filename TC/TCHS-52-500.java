@@ -1,11 +1,11 @@
-// 26-06-2012 15:12:15
+// 2012-06-26 15:12:15
 import java.util.*;
 
 public class RRSchedule {
 	public int[] terminalTimes(int[] tasks) {
 		int N = tasks.length, tot = 0;
 		int[] ans = new int[N];
-		
+
 		for(; N > 0; ) {
 			int min = Integer.MAX_VALUE, index = 0;
 			for(int j = 0; j < tasks.length; j++) {
@@ -26,9 +26,9 @@ public class RRSchedule {
 				if(tasks[j] == 0) {
 					ans[j] = tot;
 					N--;
-				}				
+				}
 			}
-		}		
+		}
 		return ans;
 	}
 }

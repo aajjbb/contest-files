@@ -1,3 +1,4 @@
+// Submitted - 2021-02-13 18:58:31
 import java.util.*;
 import java.util.regex.*;
 import java.text.*;
@@ -11,11 +12,11 @@ public class UpDownHiking
         int l = 0;
         int h = 10000;
         int ans = 0;
-		
+
         while (l <= h) {
             int m = (l + h) / 2;
             int days = 0;
-			
+
             days += (int) Math.ceil(m / (double) A);
             days += (int) Math.ceil(m / (double) B);
 
@@ -26,7 +27,7 @@ public class UpDownHiking
                 h = m - 1;
             }
         }
-		
+
         return ans;
     }
 }

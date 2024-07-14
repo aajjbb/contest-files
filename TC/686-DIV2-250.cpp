@@ -1,3 +1,4 @@
+// Submitted - 2016-03-29 04:38:08
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -28,10 +29,10 @@ bool vis[MAXN];
 
 void dfs(int n, int block) {
     vis[n] = true;
-	
+
     for (int i = 0; i < (int) tr[n].size(); i++) {
         int u = tr[n][i];
-		
+
         if (!vis[u] && u != block) {
             dfs(u, block);
         }
@@ -41,29 +42,29 @@ void dfs(int n, int block) {
 int TreeAndVertex::get(vector <int> tree) {
     int N = tree.size();
     int ans = 0;
-	
+
     for (int i = 0; i < N; i++) {
         tr[tree[i]].push_back(i + 1);
         tr[i + 1].push_back(tree[i]);
     }
-	
+
     for (int i = 0; i < N + 1; i++) {
         memset(vis, 0, sizeof(vis));
-		
+
         int curr = 0;
-		
+
         for (int j = 0; j < N + 1; j++) {
             if (i == j) continue;
-			
+
             if (!vis[j]) {
                 dfs(j, i);
                 curr += 1;
             }
         }
-		
+
         ans = max(ans, curr);
     }
-	
+
     return ans;
 }
 

@@ -1,3 +1,4 @@
+// 2012-05-10T00:27:35+01:00
 import java.util.*;
 import java.math.*;
 
@@ -6,7 +7,7 @@ public class EquilibriumPoints {
 	public double[] getPoints(int[] x, int[] m) {
 		int N = x.length;
 		double[] ans = new double[N - 1];
-		
+
 		for(int i = 0; i < N - 1; i++) {
 			double low = x[i], high = x[i + 1], mid = 0.0, sum = 0.0;
 			while(high - low > EPS) {
@@ -24,9 +25,9 @@ public class EquilibriumPoints {
 				} else {
 					low = mid;
 				}
-			}			
+			}
 			ans[i] = low;
-		}		
+		}
 		return ans;
 	}
 }

@@ -1,3 +1,4 @@
+// Submitted - 2017-05-03 01:44:48
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -25,10 +26,10 @@ public:
 string RepeatNumberCompare::compare(int x1, int k1, int x2, int k2) {
     string b1 = to_string(x1);
     string b2 = to_string(x2);
-	
+
     string s1 = "";
     string s2 = "";
-	
+
     for (int i = 0; i < k1; i++) {
         s1 = s1 + b1;
     }
@@ -41,7 +42,7 @@ string RepeatNumberCompare::compare(int x1, int k1, int x2, int k2) {
     while (s2.size() < s1.size()) {
         s2 = "0" + s2;
     }
-	
+
     for (int i = 0; i < s1.size(); i++) {
         if (s1[i] < s2[i]) {
             return "Less";
@@ -49,8 +50,8 @@ string RepeatNumberCompare::compare(int x1, int k1, int x2, int k2) {
             return "Greater";
         }
     }
-	
-    return "Equal";		
+
+    return "Equal";
 }
 
 //Powered by [KawigiEdit] 2.0!

@@ -1,3 +1,4 @@
+// 2017-07-24T02:35:28+01:00
 #include <vector>
 #include <list>
 #include <map>
@@ -25,18 +26,18 @@ class Permutiple {
 public:
     string isPossible(int x) {
         string as_s = to_string(x);
-		
+
         sort(as_s.begin(), as_s.end());
-		
+
         do {
             int perm = stoi(as_s);
-			
+
             if (perm != x && perm % x == 0) {
                 return "Possible";
             }
         } while (next_permutation(as_s.begin(), as_s.end()));
-		
-		
+
+
         return "Impossible";
     }
 };

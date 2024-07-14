@@ -1,3 +1,4 @@
+// 10-14-2012 03:15:13+01:00	Submit	aajjbb	250	232.27
 /*
 aajjbb
 */
@@ -48,9 +49,9 @@ struct RecurrenceRelation {
 	int moduloTen(vector <int> coef, vector <int> init, int N) {
 		int i, j, M = init.size();
 		int dp[N+1];
-		
+
 		REP(i, N+1) dp[i] = 0;
-		
+
 		REP(i, M) {
 			dp[i] = init[i];
 			if(dp[i] < 0) {
@@ -59,7 +60,7 @@ struct RecurrenceRelation {
 				dp[i] %= 10;
 			}
 		}
-		
+
 		for(int i = M; i <= N; i++) {
 			REP(j, M) {
 				dp[i] = (dp[i] + dp[i - j - 1] * coef[M - j - 1]);
@@ -70,7 +71,7 @@ struct RecurrenceRelation {
 				}
 			}
 		}
-			
+
 		return dp[N];
 	}
 };

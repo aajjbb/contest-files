@@ -1,3 +1,4 @@
+// 10-15-2012 05:14:55+01:00	Submit	aajjbb	1000	533.50
 #line 52 "PrimePalindromic.cpp"
 /* aajjbb */
 #include <algorithm>
@@ -28,7 +29,7 @@
 #include <string.h>
 #include <time.h>
 
-template <class T> void make_unique(T& v) {sort(all(v)); v.resize(unique(all(v)) - v.begin());} 
+template <class T> void make_unique(T& v) {sort(all(v)); v.resize(unique(all(v)) - v.begin());}
 
 #define REP(i, n) for((i) = 0; (i) < (n); i++)
 #define FOR(i, a, n) for((i) = (a); (i) < (n); i++)
@@ -47,8 +48,8 @@ vector<int> get_primes() {
 	vector<bool> check(MAX+1, true);
 
 	check[0] = check[1] = false;
-	
-	for(int i = 2; i <= (int) sqrt(MAX); i++) if(check[i]) {		
+
+	for(int i = 2; i <= (int) sqrt(MAX); i++) if(check[i]) {
 		for(int j = i * i; j <= MAX; j += i) {
 			check[j] = false;
 		}
@@ -61,10 +62,10 @@ vector<int> func(vector<int>& primes, int num) {
 	vector<int> ans;
 	for(int i = 0; i < primes.size(); i++) {
 		while(num % primes[i] == 0 && num > 0) {
-			ans.push_back(primes[i]);		
+			ans.push_back(primes[i]);
 			num /= primes[i];
 		}
-	}	
+	}
 	return ans;
 }
 
@@ -96,12 +97,12 @@ struct PrimePalindromic {
 	int count(int A, int B) {
 		int ans = 0;
 		vector<int> primes = get_primes();
-		
+
 		for(; A <= B; A++) {
 			vector<int> help = func(primes, A);
 			if(func2(help)) ans += 1;
 		}
-		
+
 		return ans;
 	}
 };

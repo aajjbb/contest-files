@@ -1,3 +1,4 @@
+// 03-10-2013 21:47:11+01:00	Submit	aajjbb	500	433.14
 /*
 aajjbb
 */
@@ -45,20 +46,20 @@ struct Animation {
 		int N = init.size();
 		vector<string> ans;
 		vector<char> situation[N];
-		
+
 		string now = string(N, '.');
-		
+
 		REP(i, N) if(init[i] != '.') {
 			now[i] = 'X';
 			situation[i].push_back(init[i]);
 		}
-		
+
 		while(now.find("X") != string::npos) {
 			ans.push_back(now);
 			now = string(N, '.');
-			
+
 			vector<char> next_sit[N];
-			
+
 			REP(i, N) if(!situation[i].empty()) {
 				REP(j, situation[i].size()) {
 					char go = situation[i][j];
@@ -72,8 +73,8 @@ struct Animation {
 				}
 			}
 			REP(i, N) situation[i] = next_sit[i];
-		}	
-		ans.push_back(string(N, '.'));	
+		}
+		ans.push_back(string(N, '.'));
 		return ans;
 	}
 };

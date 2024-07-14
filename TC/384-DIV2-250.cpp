@@ -1,3 +1,4 @@
+// 05-18-2013 02:48:00+01:00	Submit	aajjbb	250	205.79
 /* aajjbb */
 #include <iostream>
 #include <string>
@@ -48,22 +49,22 @@ const int MAXN = 1000000;
 struct Prank {
 	vector <int> realWeight(int apparentGain) {
 		vector<int> ans;
-		
+
 		int i, j;
-		
+
 		for (i = 1; i <= MAXN; i++) {
 			for (j = i + 1; j <= MAXN; j++) {
 				ll a = (ll) i*i, b = (ll) j*j;
-				
+
 				if (labs(a-b) > apparentGain) break;
-				
+
 				if (labs(a-b) == apparentGain) {
 					ans.push_back((int)sqrt(b)); break;
 				}
 			}
 		}
-		
-		return ans;		
+
+		return ans;
 	}
 };
 

@@ -1,3 +1,4 @@
+// 09-04-2012 12:59:07+01:00	Submit	aajjbb	250	230.54
 import java.util.*;
 import java.math.*;
 
@@ -17,7 +18,7 @@ public class TournamentsAmbiguityNumber {
 			}
 		}
 		return s.size();
-	}	
+	}
 	class Triplet {
 		private int a, b, c;
 		public Triplet(int a, int b, int c) {

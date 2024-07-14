@@ -1,3 +1,4 @@
+// 11-27-2019 22:50:20+01:00	Submit	aajjbb	250	237.04
 #include <vector>
 #include <list>
 #include <map>
@@ -27,19 +28,19 @@ public:
 int FloorLayout::countBoards(vector <string> layout) {
     const int n = (int) layout.size();
     const int m = (int) layout[0].size();
-    
+
     vector<vector<bool>> vis(n, vector<bool>(m));
-    
+
     int ans = 0;
-    
+
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             if (vis[i][j]) {
                 continue;
             }
-            
+
             ans += 1;
-            
+
             if (layout[i][j] == '-') {
                 for (int k = j; k < m; k++) {
                     if (layout[i][k] != '-') {
@@ -58,7 +59,7 @@ int FloorLayout::countBoards(vector <string> layout) {
             }
         }
     }
-    
+
     return ans;
 }
 

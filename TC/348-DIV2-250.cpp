@@ -1,3 +1,4 @@
+// 04-21-2013 17:25:46+01:00	Submit	aajjbb	250	226.01
 /* aajjbb */
 #include <iostream>
 #include <string>
@@ -45,14 +46,14 @@ typedef long double ld;
 
 pair<int, int> func(string& inst) {
 	int i, xx = 0, yy = 0;
-	
+
 	for (i = 0; i < inst.size(); i++) {
 		if (inst[i] == 'N') yy -= 1;
 		else if (inst[i] == 'S') yy += 1;
 		else if (inst[i] == 'E') xx += 1;
 		else xx -= 1;
 	}
-	
+
 	return make_pair(xx, yy);
 }
 
@@ -61,7 +62,7 @@ struct OptimalList {
 		int i;
 		string ans = "";
 		pair<int, int> end = func(inst);
-				
+
 		if (end.first > 0) for (i = 0; i < abs(end.first); i++) ans += "E";
 		if (end.second < 0) for (i = 0; i < abs(end.second); i++) ans += "N";
 		if (end.second > 0) for (i = 0; i < abs(end.second); i++) ans += "S";

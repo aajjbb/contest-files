@@ -1,3 +1,4 @@
+// 2011-08-23T18:45:25+01:00
 import java.util.*;
 
 public class WordFindPuzzle {
@@ -6,7 +7,7 @@ public class WordFindPuzzle {
 		String temp = "";
 		List<String> hori = new ArrayList<String>();
 		List<String> vert = new ArrayList<String>();
-		
+
 		for(i = 0; i < board.length; i++) {
 			temp = "";
 			for(j = 0; j < board[i].length(); j++) {
@@ -14,7 +15,7 @@ public class WordFindPuzzle {
 			}
 			hori.add(temp);
 		}
-		
+
 		for(i = 0; i < board.length; i++) {
 			temp = "";
 			for(j = board[i].length() - 1; j >= 0; j--) {
@@ -22,7 +23,7 @@ public class WordFindPuzzle {
 			}
 			hori.add(temp);
 		}
-		
+
 		for(i = 0; i < board[0].length(); i++) {
 			temp = "";
 			for(j = 0; j < board.length; j++) {
@@ -30,7 +31,7 @@ public class WordFindPuzzle {
 			}
 			vert.add(temp);
 		}
-		
+
 		for(i = 0; i < board[0].length(); i++) {
 			temp = "";
 			for(j = board.length - 1; j >= 0; j--)  {
@@ -38,7 +39,7 @@ public class WordFindPuzzle {
 			}
 			vert.add(temp);
 		}
-		
+
 		for(i = 0; i < words.length; i++) {
 			boolean v = false;
 			boolean h = false;
@@ -57,7 +58,7 @@ public class WordFindPuzzle {
 		 	if(h == true && v == true) {
 		 		ans++;
 		 	}
-		
+
 		 }
 		 return ans;
 	}

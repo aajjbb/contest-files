@@ -1,4 +1,4 @@
-// 2012-08-06 22:49:03 - 174.37
+// 2012-08-06T22:49:03+01:00 - 174.37
 import java.util.*;
 import java.math.*;
 import java.awt.Point;

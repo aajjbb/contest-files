@@ -1,4 +1,4 @@
-
+// Submitted - 2016:07:08 04:30:38
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -29,7 +29,7 @@ int dp[MAXN];
 
 int func(int pos) {
     int& ans = dp[pos];
-		
+
     if (ans == -1) {
         set<int> st;
         ans = 0;
@@ -37,11 +37,11 @@ int func(int pos) {
         for (int i = 0; i <= pos - 2; i++) {
             //			cout << pos << " => " << i << " " << pos - i - 2 <<  " = " << (func(i) ^ func(pos - i - 2)) << "\n";
             st.insert(func(i) ^ func(pos - i - 2));
-        }			
-		
+        }
+
         while (st.count(ans)) ans += 1;
     }
-	
+
     return ans;
 }
 

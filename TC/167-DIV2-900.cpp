@@ -1,3 +1,4 @@
+// 03-11-2013 05:06:09+01:00	Submit	aajjbb	900	730.33
 /*
 aajjbb
 */
@@ -47,17 +48,17 @@ int dy[4] = {-1, 1, 0, 0};
 int bfs(int x, int y, vector<string>& orchard) {
 	queue<pair<int, int> > q;
 	int N = orchard.size(), M = orchard[0].size(), ans = INT_MAX;
-	
+
 	memset(vis, 0, sizeof(vis));
-	
+
 	vis[x][y] = 1; q.push(make_pair(x, y));
-	
+
 	while(!q.empty()) {
 		int xx = q.front().first, yy = q.front().second; q.pop();
-		
+
 		REP(i, 4) {
 			int nx = xx + dx[i], ny = yy + dy[i];
-			
+
 			if(nx >= 0 && ny >= 0 && nx < N && ny < M) {
 				if(!vis[nx][ny]) {
 					q.push(make_pair(nx, ny));
@@ -67,7 +68,7 @@ int bfs(int x, int y, vector<string>& orchard) {
 			} else {
 				ans = min(ans, vis[xx][yy] + 1);
 			}
-		}	
+		}
 	}
 	return ans;
 }
@@ -76,7 +77,7 @@ struct Orchard {
 	vector <int> nextTree(vector <string> orchard) {
 		int N = orchard.size(), M = orchard[0].size(), mx = INT_MIN;
 		vector<int> ans(2);
-		
+
 		REP(i, N) REP(j, M) if(orchard[i][j] == '-') {
 			int now = bfs(i, j, orchard);
 			if(now > mx) {
@@ -84,7 +85,7 @@ struct Orchard {
 				ans[0] = i + 1, ans[1] = j + 1;
 			}
 		}
-		
+
 		return ans;
 	}
 };

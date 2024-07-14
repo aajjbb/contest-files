@@ -1,3 +1,4 @@
+// 2011-08-23T22:59:02+01:00
 import java.util.*;
 
 public class CorruptMages {
@@ -5,7 +6,7 @@ public class CorruptMages {
 		int ans = 0;
 		int buff = 0;
 		power = insertionSortReversed(power);
-		
+
 		for(int i = 0; i < power.length; i++) {
 			ans += 1 + power[i];
 			buff++;
@@ -13,7 +14,7 @@ public class CorruptMages {
 				return buff;
 			}
 		}
-		return buff;	
+		return buff;
 	}
 
 	public int[] insertionSortReversed(int[] num) {
@@ -28,7 +29,7 @@ public class CorruptMages {
 			}
 			num[moveItem] = insert;
 		}
-		return num;	
+		return num;
 	}
 }
 

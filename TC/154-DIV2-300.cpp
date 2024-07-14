@@ -1,3 +1,4 @@
+// 2013-03-02T04:05:31+01:00
 /*
 aajjbb
 */
@@ -48,7 +49,7 @@ struct ProfitCalculator {
 	int percent(vector <string> items) {
 		int i;
 		double diff = 0.0, all = 0.0;
-		
+
 		REP(i, items.size()) {
 			double up, down;
 			sscanf(items[i].c_str(), "%lf%lf", &up, &down);

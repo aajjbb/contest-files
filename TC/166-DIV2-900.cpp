@@ -1,3 +1,4 @@
+// 02-04-2012 19:12:15+01:00	Submit	aajjbb	900	316.34
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -37,15 +38,15 @@ struct ConvexPolygon {
 		//Thanks for the tip - TurtleShip
 		int N = x.size();
 		double l = 0, r = 0;
-		
+
 		for(int i = 0; i < (N - 1); i++) {
 			l += double(x[i] * y[i + 1]);
 			r += double(x[i + 1] * y[i]);
 		}
 		l += (double) (x[N - 1] * y[0]);
 		r += (double) (x[0] * y[N - 1]);
-		
-		return abs(0.5 * (l - r));		
+
+		return abs(0.5 * (l - r));
 	}
 };
 

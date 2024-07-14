@@ -1,3 +1,4 @@
+// Submitted - 2014:06:14 02:15:56
 import java.util.*;
 import java.util.regex.*;
 import java.text.*;
@@ -14,9 +15,9 @@ public class CostOfDancing {
 		for (int i = 0; i < Math.min(N, K); i++) {
 			ans += danceCost[i];
 		}
-		
+
 		return ans;
-	}	
+	}
 	public void debug(Object ... obj) {
 		Arrays.deepToString(obj);
 	}

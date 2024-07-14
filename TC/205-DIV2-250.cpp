@@ -1,3 +1,4 @@
+// 12-04-2013 20:25:18+01:00	Submit	aajjbb	250	248.25
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -25,13 +26,13 @@ int Average::belowAvg(vector <int> math, vector <int> verbal) {
 	int i;
 	int ans = 0;
 	int N = (int) math.size();
-	
+
 	double ave = (double) (accumulate(math.begin(), math.end(), 0) + accumulate(verbal.begin(), verbal.end(), 0)) / (double) N;
-	
+
 	for (i = 0; i < N; i++) {
 		if (math[i] + verbal[i] < ave) ans += 1;
 	}
-	
+
 	return ans;
 }
 

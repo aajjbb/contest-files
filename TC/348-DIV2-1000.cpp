@@ -1,3 +1,4 @@
+// 04-21-2013 18:25:40+01:00	Submit	aajjbb	1000	686.84
 /* aajjbb */
 #include <iostream>
 #include <string>
@@ -50,9 +51,9 @@ struct IncreasingSubsequences {
 		a.push_back(INT_MAX/2);
 		int i, j, N = a.size();
 		memset(dp, 0, sizeof(dp));
-		
+
 		dp[0] = 1;
-		
+
 		for (i = 1; i < N; i++) {
 			int least = 0;
 			for (j = i - 1; j >= 0; j--) {
@@ -62,7 +63,7 @@ struct IncreasingSubsequences {
 				}
 			}
 			if (dp[i] == 0) dp[i] += 1;
-		}	
+		}
 		return dp[N-1];
 	}
 };

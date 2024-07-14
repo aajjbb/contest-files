@@ -1,3 +1,4 @@
+// 10-14-2013 20:33:51+01:00	Submit	aajjbb	250	215.62
 /* aajjbb */
 
 #include <iostream>
@@ -48,14 +49,14 @@ typedef unsigned uint;
 bool cmp(string a, string b) {
 	int sa = 0, sb = 0;
 	int i;
-	
+
 	if (a == "JOHN") return true;
 	if (b == "JOHN") return false;
-	
+
 	for (i = 0; i < (int) a.size(); i++) sa += (a[i] - 'A' + 1);
 	for (i = 0; i < (int) b.size(); i++) sb += (b[i] - 'A' + 1);
-	
-	if (sa != sb) {	
+
+	if (sa != sb) {
 		return sa > sb;
 	} else {
 		return a < b;
@@ -65,7 +66,7 @@ bool cmp(string a, string b) {
 struct TheBestName {
 	vector <string> sort(vector <string> names) {
 		std::sort(names.begin(), names.end(), cmp);
-		
+
 		return names;
 	}
 };

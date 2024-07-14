@@ -1,3 +1,4 @@
+// 2015-06-22T05:13:31+01:00
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -30,30 +31,30 @@ int func(int pos, int len, int color) {
 		return 0;
 	} else {
 		int& ans = dp[pos][len][color];
-		
+
 		if (ans == -1) {
 			ans = INT_MAX / 3;
-			
+
 			if (stripe[pos] == color) {
 				ans = func(pos + 1, len - 1, color);
 			} else {
 				for (int i = 1; i <= len; i++) {
-					chmin(ans, 1 + func(pos, i, stripe[pos]) + func(pos + i, len - i, color));					
+					chmin(ans, 1 + func(pos, i, stripe[pos]) + func(pos + i, len - i, color));
 				}
 			}
 		}
-		
+
 		return ans;
 	}
 }
 
 int StripePainter::minStrokes(string stripes) {
-	memset(dp, -1, sizeof(dp));	
-	
+	memset(dp, -1, sizeof(dp));
+
 	for (int i = 0; i < (int) stripes.size(); i++) {
 		stripe.push_back(stripes[i] - 'A');
 	}
-	
+
 	return func(0, stripes.size(), 100);
 }
 

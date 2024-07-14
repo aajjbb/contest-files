@@ -1,3 +1,4 @@
+// 2012-09-20T13:32:32+01:00
 import java.util.*;
 import java.math.*;
 
@@ -10,7 +11,7 @@ public class Substitute {
 			}
 		}
 		return ans.equals("") ? 0 : Integer.parseInt(ans);
-	}	
+	}
 }
 
 

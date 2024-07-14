@@ -1,3 +1,4 @@
+// 09-04-2012 20:32:19+01:00	Submit	aajjbb	250	249.35
 import java.util.*;
 import java.math.*;
 
@@ -7,7 +8,7 @@ public class MedianOfNumbers {
 		if(numbers.length % 2 == 0) return -1;
 		Arrays.sort(numbers);
 		return numbers[numbers.length / 2];
-	}	
+	}
 }
 
 

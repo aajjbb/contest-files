@@ -1,3 +1,4 @@
+// Submitted - 2016-03-29 04:44:11
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -32,8 +33,8 @@ bool bpm(int u, bool seen[], int matchR[]) {
         int v = graph[u][i];
 
         if (!seen[v]) {
-            seen[v] = true; 
- 
+            seen[v] = true;
+
             if (matchR[v] < 0 || bpm(matchR[v], seen, matchR)) {
                 matchR[v] = u;
                 return true;
@@ -42,17 +43,17 @@ bool bpm(int u, bool seen[], int matchR[]) {
     }
     return false;
 }
- 
+
 int maxBPM() {
     int matchR[MAXN];
- 
+
     memset(matchR, -1, sizeof(matchR));
- 
-    int result = 0; 
+
+    int result = 0;
     for (int u = 0; u < N; u++) {
         bool seen[MAXN];
         memset(seen, 0, sizeof(seen));
- 
+
         if (bpm(u, seen, matchR)) {
             result++;
         }
@@ -62,7 +63,7 @@ int maxBPM() {
 
 string SegmentsAndPoints::isPossible(vector <int> p, vector <int> l, vector <int> r) {
     N = (int) p.size();
-	
+
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (p[i] >= l[j] && p[i] <= r[j]) {
@@ -70,7 +71,7 @@ string SegmentsAndPoints::isPossible(vector <int> p, vector <int> l, vector <int
             }
         }
     }
-	
+
     return maxBPM() == N ? "Possible" : "Impossible";
 }
 

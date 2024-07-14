@@ -1,3 +1,4 @@
+// 09-04-2012 17:15:27+01:00	Submit	aajjbb	250	246.06
 import java.util.*;
 import java.math.*;
 
@@ -10,12 +11,12 @@ public class Containers {
 				if(packages[i] <= containers[j]) {
 					containers[j] -= packages[i];
 					break;
-				}			
+				}
 			}
 		}
 		for(int i: containers) ans += i;
 		return ans;
-	}	
+	}
 }
 
 // Powered by FileEdit

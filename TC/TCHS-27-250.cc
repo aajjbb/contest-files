@@ -1,3 +1,4 @@
+// 2012-06-12T12:54:44+01:00
 #include <string>
 #include <vector>
 #include <set>
@@ -22,7 +23,7 @@ public:
                 int n = (int) message[i];
                 if((n & 1 << j)) {
                     g[j + 1] = 'x';
-                } 
+                }
             }
             reverse(g.begin(), g.end());
             v.push_back(g);

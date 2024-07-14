@@ -1,3 +1,4 @@
+// 2020-05-28T01:36:37+01:00
 #include <vector>
 #include <list>
 #include <map>
@@ -27,7 +28,7 @@ public:
 double TwoLotteryGames::getHigherChanceGame(int n, int m, int k) {
 	double total = 0.0;
 	double common = 0.0;
-	
+
 	for (int i = 0; i < (1 << n); i++) {
 		if (__builtin_popcount(i) != m) {
 			continue;
@@ -37,21 +38,21 @@ double TwoLotteryGames::getHigherChanceGame(int n, int m, int k) {
 				continue;
 			}
 			total += 1;
-			
+
 			int matched = 0;
-			
+
 			for (int k = 0; k < n; k++) {
 				if ((i & (1 << k)) && (j & (1 << k))) {
 					matched += 1;
 				}
 			}
-			
+
 			if (matched >= k) {
 				common += 1;
 			}
 		}
 	}
-	
+
 	return common / total;
 }
 

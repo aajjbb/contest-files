@@ -1,3 +1,4 @@
+// 10-14-2012 01:03:25+01:00	Submit	aajjbb	250	247.51
 /* aajjbb */
 #include <algorithm>
 #include <bitset>
@@ -39,7 +40,7 @@ typedef long long ll;
 struct CrossWord {
 	int countWords(vector <string> board, int size) {
 		int i, j, k, len, ans = 0;
-		
+
 		REP(i, board.size()) {
 			REP(j, board[0].size()) {
 				if(board[i][j] == '.') {
@@ -51,7 +52,7 @@ struct CrossWord {
 					j = k;
 				}
 			}
-		}		
+		}
 		return ans;
 	}
 };

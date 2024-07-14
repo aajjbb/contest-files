@@ -1,3 +1,4 @@
+// 01-22-2016 01:48:43+01:00	Submit	aajjbb	250	248.11
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -28,7 +29,7 @@ string TitleString::toFirstUpperCase(string title) {
 			title[i] = 'A' + (title[i] - 'a');
 		}
 	}
-	
+
 	return title;
 }
 

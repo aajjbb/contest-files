@@ -1,3 +1,4 @@
+// 09-05-2012 13:49:52+01:00	Submit	aajjbb	550	198.33
 #line 47 "MagicCube.cpp"
 /*
  aajjbb

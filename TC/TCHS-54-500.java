@@ -1,4 +1,4 @@
-// 06-07-2012 02:18:44
+// 2012-07-06T02:18:44+01:00
 import java.util.*;
 import java.math.*;
 
@@ -7,11 +7,11 @@ public class SegmentDisplay {
 		int[] dp = new int[500010];
 		int[] digits = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
 		int MOD = 1000000007;
-		
+
 		if(n == 0) return 0;
-		
+
 		dp[0] = 1;
-		
+
 		for(int i = 0; i <= n + 1; i++) {
 			for(int j = 0; j < 10; j++) {
 				if(i >= digits[j] && (i != n || j != 0)) {
@@ -20,7 +20,7 @@ public class SegmentDisplay {
 			}
 		}
 		return dp[n] + (n == 6 ? 1 : 0) % MOD;
-	}	
+	}
 }
 
 

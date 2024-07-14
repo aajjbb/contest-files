@@ -1,3 +1,4 @@
+// Submitted - 2016:07:06 03:48:38
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -41,13 +42,13 @@ int ApplesAndPears::getArea(vector <string> board, int K) {
             } else {
             	E[i][j] += 1;
             }
-            
+
             if (i > 0 && j > 0) {
             	A[i][j] += A[i - 1][j - 1];
             	P[i][j] += P[i - 1][j - 1];
             	E[i][j] += E[i - 1][j - 1];
             }
-            	
+
             for (int k = 0; k < i; k++) {
                 A[i][j] += board[k][j] == 'A' ? 1 : 0;
                 P[i][j] += board[k][j] == 'P' ? 1 : 0;
@@ -57,24 +58,24 @@ int ApplesAndPears::getArea(vector <string> board, int K) {
                 A[i][j] += board[i][k] == 'A' ? 1 : 0;
                 P[i][j] += board[i][k] == 'P' ? 1 : 0;
                 E[i][j] += board[i][k] == '.' ? 1 : 0;
-            }            
+            }
         }
     }
-    
+
     int ap = A[N - 1][M - 1];
     int pe = P[N - 1][M - 1];
     int em = E[N - 1][M - 1];
 
     //cout << ap << " " << pe << " " << em << endl;
-	
+
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {		
+        for (int j = 0; j < M; j++) {
             for (int a = i; a < N; a++) {
-                for (int b = j; b < M; b++) {				
+                for (int b = j; b < M; b++) {
                     int ee = E[a][b];
-                    int aa = A[a][b];                    
+                    int aa = A[a][b];
                     int pp = P[a][b];
-                    
+
                     if (i - 1 >= 0 && j - 1 >= 0) {
                     	ee += E[i - 1][j - 1];
                     	aa += A[i - 1][j - 1];
@@ -90,7 +91,7 @@ int ApplesAndPears::getArea(vector <string> board, int K) {
                     	aa -= A[a][j - 1];
                     	pp -= P[a][j - 1];
                     }
-                    
+
                     if (max(ee, max(pp, aa)) == (a - i + 1) * (b - j + 1)) {
                         //						cout << i << " " << j << " = " << a << " " << b << " => " << aa << " " << pp << " " << ee << endl;
                         ans = max(ans, (a - i + 1) * (b - j + 1));
@@ -111,7 +112,7 @@ int ApplesAndPears::getArea(vector <string> board, int K) {
             }
         }
     }
-    
+
     return ans;
 }
 

@@ -1,3 +1,4 @@
+// Submitted - 2016-06-26 22:28:26
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -29,23 +30,23 @@ int vis[MAXN];
 
 int dfs(int node, int depth) {
 	vis[node] = true;
-	
+
 	if (depth == 5) {
 		return 1;
 	} else {
 		int ans = 0;
-		
+
 		for (int i = 0; i < (int) G[node].size(); i++) {
 			int next = G[node][i];
-			
+
 			if (!vis[next]) {
 				if (dfs(next, depth + 1)) {
 					ans = 1;
 				}
-				vis[next] = false;				
+				vis[next] = false;
 			}
 		}
-		
+
 		return ans;
 	}
 }
@@ -55,16 +56,16 @@ string SmilesTheFriendshipUnicorn::hasFriendshipChain(int N, vector <int> A, vec
 		G[A[i]].push_back(B[i]);
 		G[B[i]].push_back(A[i]);
 	}
-	
+
 	for (int i = 0; i < N; i++) {
 		memset(vis, 0, sizeof(vis));
-		
+
 		if (dfs(i, 1)) {
 			cout << i << endl;
 			return "Yay!";
 		}
 	}
-	
+
 	return ":(";
 }
 

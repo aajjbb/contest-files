@@ -1,3 +1,4 @@
+// 2020-05-27T23:13:39+01:00
 #include <vector>
 #include <list>
 #include <map>
@@ -44,13 +45,13 @@ int func(int len, int local_lcm) {
 		if (dp[len].find(local_lcm) != dp[len].end()) {
 			return dp[len][local_lcm];
 		}
-		
+
 		int ans = 0;
-		
+
 		for (int i = len; i >= 1; i--) {
 			ans = max(ans, func(len - i, lcm(local_lcm, i)));
-		}	
-		
+		}
+
 		return dp[len][local_lcm] = ans;
 	}
 }

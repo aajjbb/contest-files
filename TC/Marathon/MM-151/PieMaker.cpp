@@ -2,6 +2,16 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * Using this comment section to note a few of my initial
+ * thoughts on the problem.
+ * I am thinking of starting 'greedingly' putting source
+ * places in the targets, using a 'dummy' strategy.
+ * Optimizing first for the 'size' of
+ */
+
+const int MAX_TURNS = 1000;
+
 int main()
 {
   int T,S,C,N;
@@ -34,7 +44,7 @@ int main()
 
   int numMoves=30;
   int moves=0;
-  for (int i=0; moves<numMoves; i++)
+  for (int i=0; moves< MAX_TURNS; i++)
   {
     int idS=i%S;
     int idT=-1;

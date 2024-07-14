@@ -1,3 +1,4 @@
+// Submitted - 2014:08:03 21:48:44
 #include <vector>
 #include <list>
 #include <map>
@@ -27,9 +28,9 @@ public:
 string IncrementingSequence::canItBeDone(int k, vector <int> A) {
 	int N = (int) A.size();
 	vector<bool> used(N + 1, false), filled(N + 1, false);
-	
+
 	sort(A.begin(), A.end());
-	
+
 	for (int i = 0; i < N; i++) {
 		if (A[i] > N) return "IMPOSSIBLE";
 		if (!used[A[i]]) {
@@ -37,11 +38,11 @@ string IncrementingSequence::canItBeDone(int k, vector <int> A) {
 			filled[i] = true;
 		}
 	}
-	
+
 	for (int i = 1; i <= N; i++) {
 		if (!used[i]) {
 			for (int j = 0; j < N; j++) {
-				if (!filled[j] && i >= A[j]) {			
+				if (!filled[j] && i >= A[j]) {
 					if ((i - A[j]) % k == 0) {
 						used[i] = true;
 						filled[j] = true;
@@ -49,7 +50,7 @@ string IncrementingSequence::canItBeDone(int k, vector <int> A) {
 					}
 				}
 			}
-		}		
+		}
 	}
 	for (int i = 1; i <= N; i++) {
 		if (!used[i]) {
@@ -57,7 +58,7 @@ string IncrementingSequence::canItBeDone(int k, vector <int> A) {
 		}
 	}
 	return "POSSIBLE";
-		
+
 }
 
 //Powered by [KawigiEdit] 2.0!

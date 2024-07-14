@@ -1,3 +1,4 @@
+// 10-17-2013 01:11:22+01:00	Submit	aajjbb	500	445.31
 #include <vector>
 #include <list>
 #include <map>
@@ -28,11 +29,11 @@ string Hangman::guessWord(string feedback, vector <string> words) {
 	int i, j;
 	int N = (int) words.size();
 	int M = (int) feedback.size();
-	
+
 	char c;
-	
+
 	vector<string> ans;
-	
+
 	for (i = 0; i < N; i++) if (words[i].size() == feedback.size()) {
 		bool ok = true;
 		for (j = 0; j < M; j++) {
@@ -49,7 +50,7 @@ string Hangman::guessWord(string feedback, vector <string> words) {
 		}
 		if (ok) ans.push_back(words[i]);
 	}
-	
+
 	if (1 != ans.size()) {
 		return "";
 	} else {

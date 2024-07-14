@@ -1,3 +1,4 @@
+// Submited - 2014-07-19 23:07:14
 #include <vector>
 #include <list>
 #include <map>
@@ -26,17 +27,17 @@ public:
 
 int ManySquares::howManySquares(vector <int> sticks) {
 	map<int, int> mp;
-	
+
 	for (auto& i: sticks) {
 		mp[i] += 1;
-	}	
+	}
 	int ans = 0;
-	
+
 	auto it = mp.begin();
 	for ( ; it != mp.end(); it++) {
 		ans += it->second / 4;
 	}
-	
+
 	return ans;
 }
 

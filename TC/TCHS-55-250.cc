@@ -1,3 +1,4 @@
+// 2011-08-23T12:59:11+01:00
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,7 +15,7 @@ class VeryInterestingMovie {
 
 int VeryInterestingMovie::maximumPupils(vector <string> seats) {
 	int ans = 0, i, j;
-	
+
 	REP(i, seats.size()) {
 		for(j = 0; j < seats[i].size(); j++) {
 			if(seats[i][j] == 'Y') {

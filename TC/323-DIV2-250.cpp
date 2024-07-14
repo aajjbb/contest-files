@@ -1,3 +1,4 @@
+// 12-14-2013 04:34:50+01:00	Submit	aajjbb	250	75.00
 /*
 aajjbb
 */
@@ -48,7 +49,7 @@ struct IrreducibleNumber {
 	int getIrreducible(vector <int> A) {
 		int N = A.size();
 		set<int> sum;
-		
+
 		for(int x = 0; x < (1 << N); x++) {
 			int now = 0;
 			for(int i = 0; i < N; i++) if((x >> i) & 1) {
@@ -56,7 +57,7 @@ struct IrreducibleNumber {
 			}
 			sum.insert(now);
 		}
-		
+
 		for(int i = 1; ; i++) if(!sum.count(i)) return i;
 	}
 };

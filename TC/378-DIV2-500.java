@@ -1,3 +1,4 @@
+// 10-20-2014 05:18:08+01:00	Submit	aajjbb	500	487.07
 import java.util.*;
 import java.util.regex.*;
 import java.text.*;
@@ -18,7 +19,7 @@ public class TrueStatements {
 			if (cnt == i) return i;
 		}
 		return -1;
-	}	
+	}
 	public void debug(Object ... obj) {
 		Arrays.deepToString(obj);
 	}

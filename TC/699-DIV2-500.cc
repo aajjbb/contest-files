@@ -1,3 +1,4 @@
+// Submitted - 2019-07-28 03:42:21
 #include <vector>
 #include <list>
 #include <map>
@@ -26,19 +27,19 @@ public:
 
 long long getSum(long long arg) {
 	long long ans = 0;
-	
+
 	while (arg > 0) {
 		ans += arg;
 		arg /= 10;
 	}
-	
+
 	return ans;
 }
 
 long long LastDigit::findX(long long S) {
 	long long low = 1, high = 1000000000000000000;
 	long long ans = -1;
-	  
+
 	while (low <= high) {
 		long long mid = low + (high - low) / 2;
 		long long curr_sum = getSum(mid);
@@ -50,9 +51,9 @@ long long LastDigit::findX(long long S) {
 			high = mid - 1;
 		} else {
 			low = mid + 1;
-		}		 
+		}
 	}
-	 
+
 	return ans;
 }
 

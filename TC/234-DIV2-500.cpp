@@ -1,3 +1,4 @@
+// 09-23-2014 18:57:28+01:00	Submit	aajjbb	500	485.25
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -19,12 +20,12 @@ int lcm(int a, int b) {
 vector <string> FractionSplit::getSum(int n, int d) {
 	vector<string> ans;
 	char buff[20];
-	
-	for ( ; n > 0 ; ) {		
+
+	for ( ; n > 0 ; ) {
 		for (int i = 2; i <= d; i++) {
 			int g = lcm(i, d);
-			int neg = (g / d * n) - (g / i);		
-			
+			int neg = (g / d * n) - (g / i);
+
 			if (neg >= 0) {
 				d = g;
 				n = neg;
@@ -33,8 +34,8 @@ vector <string> FractionSplit::getSum(int n, int d) {
 				break;
 			}
 		}
-	}	
-	
+	}
+
 	return ans;
 }
 

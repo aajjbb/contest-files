@@ -1,3 +1,4 @@
+// 2017-05-03T01:37:01+01:00
 #include <bits/stdc++.h>
 
 template<typename T> T gcd(T a, T b) {
@@ -24,14 +25,14 @@ public:
 
 bool checkV(vector<string> board, int N, int M) {
     vector<string> new_board(N, string(M, '.'));
-	
+
     for (int i = 0; i < N; i++) {
         for (int j = 0; j <= M / 2; j++) {
             new_board[i][j] = board[i][M - j - 1];
             new_board[i][M - j - 1] = board[i][j];
         }
     }
-    for (int i = 0; i < N; i++) {		
+    for (int i = 0; i < N; i++) {
         if (new_board[i] != board[i]) {
             return false;
         }
@@ -41,7 +42,7 @@ bool checkV(vector<string> board, int N, int M) {
 
 bool checkH(vector<string> board, int N, int M) {
     vector<string> new_board(N, string(M, '.'));
-	
+
     for (int j = 0; j < M; j++) {
         for (int i = 0; i <= N / 2; i++) {
             new_board[i][j] = board[N - i - 1][j];
@@ -58,10 +59,10 @@ bool checkH(vector<string> board, int N, int M) {
 string SymmetryDetection::detect(vector <string> board) {
     int N = board.size();
     int M = board[0].size();
-	
+
     bool isH = checkH(board, N, M);
     bool isV = checkV(board, N, M);
-	
+
     if (isH && isV) {
         return "Both";
     } else if (!isH && !isV) {

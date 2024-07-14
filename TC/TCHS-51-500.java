@@ -1,13 +1,13 @@
-// 21-09-2011 13:22:44
+// 2011-09-21T13:22:44+01:00
 import java.util.*;
 
 public class AuctionHouse {
 	public String[] getList(String[] bids) {
 		Collection<String> items = new LinkedHashSet<String>();
-		
+
 		for(int i = 0; i < bids.length; i++) {
 			String[] temp = bids[i].split("\\s");
-			items.add(temp[1]);		
+			items.add(temp[1]);
 		}
 		String[] ret = new String[items.size()];
 		int a = 0;
